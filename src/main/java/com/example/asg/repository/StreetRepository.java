@@ -9,5 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface StreetRepository extends JpaRepository<Street, Integer>, PagingAndSortingRepository<Street, Integer> {
+    @Query("select f from Street f where f.district = :district_id")
     List<Street> findStreetByDistrict_Id(@Param("district_id")int district_id);
 }
